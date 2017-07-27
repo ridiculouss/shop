@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.shop.user.entity.User" table="user">
+		<id name="id" type="integer">
+			<column name="u_id"/>
+			<generator class="native"/>
+		</id>
+		<property name="userName" type="string">
+			<column name="u_userName" sql-type="varchar(200)" unique="true" not-null="true"/>
+		</property>
+		<property name="password" type="string">
+			<column name="u_password" sql-type="varchar(100)" not-null="true"/>
+		</property>
+		<property name="email" type="string">
+			<column name="u_email" sql-type="varchar(200)" not-null="true"/>
+		</property>
+		<property name="name" type="string">
+			<column name="u_name" sql-type="varchar(100)"/>
+		</property>
+		<property name="sex" type="string">
+			<column name="u_sex" sql-type="varchar(20)"/>
+		</property>
+		<property name="birthday" type="date">
+			<column name="u_birthday"/>
+		</property>
+		<property name="phone" type="string">
+			<column name="u_phone" sql-type="char(30)"/>
+		</property>
+		<property name="address" type="string">
+			<column name="u_address" sql-type="varchar(200)"/>
+		</property>
+		<property name="code" type="string">
+			<column name="u_code" sql-type="varchar(200)"/>
+		</property>
+		<property name="state" type="integer">
+			<column name="u_state" sql-type="int"/>
+		</property>
+	</class>
+</hibernate-mapping>
