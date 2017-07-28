@@ -44,8 +44,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	
 	//根据一级分类的ID查询商品
 	public String findByCid() {
-		/**
-		 *	//查询所有一级分类集合
+		/*	//查询所有一级分类集合
 		 *	List<Category> cList = categoryService.findAll();
 		 *	//将一级分类集合保存到值栈中
 		 *	ActionContext.getContext().getValueStack().set("cList", cList);

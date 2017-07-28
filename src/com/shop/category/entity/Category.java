@@ -1,5 +1,6 @@
 package com.shop.category.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import com.shop.categorySecond.entity.CategorySecond;
  * 一级分类的实体类
  *
  */
-public class Category {
+public class Category implements Serializable{
 	private Integer c_id;
 	private String c_name;
 	//一级中存放二级分类的集合
