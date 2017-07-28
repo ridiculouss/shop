@@ -21,11 +21,11 @@
 				<s:iterator value="#session.cList" var="c">
 					<dl>
 						<dt>
-							<a href="${pageContext.request.contextPath}/image/蔬菜 - Powered By Mango Team.htm"><s:property value="#c.c_name" /></a>
+							<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="#c.c_id" />&page=1"><s:property value="#c.c_name" /></a>
 						</dt>
 							<s:iterator var="cs" value="#c.categorySeconds">
 								<dd>
-									<a ><s:property value="#cs.cs_name" /></a>
+									<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="#cs.cs_id"/>&page=1"><s:property value="#cs.cs_name" /></a>
 								</dd>
 							</s:iterator>	
 					</dl>
@@ -33,50 +33,69 @@
 			</div>
 		</div>
 		<div class="span18 last">
-			
-			<form id="productForm" action="${pageContext.request.contextPath}/image/蔬菜 - Powered By Mango Team.htm" method="get">
-				<div id="result" class="result table clearfix">
-						<ul>
-							<s:iterator value="pageBean.list" var="p">						
-								<li>
-									<a href="${pageContext.request.contextPath}/京华商城分页面.htm">
-										<img src="${pageContext.request.contextPath}/<s:property value="#p.image" />" width="170" height="170"  style="display: inline-block;"/>
-										<span style='color:green'><s:property value="#p.name" /></span>
-										<span class="price">商城价:¥<s:property value="#p.shopPrice" /></span>
-									</a>
-								</li>
-							</s:iterator>		
-						</ul>
-				</div>
-	<div class="pagination">
-			<span>第<s:property value="pageBean.page" />/<s:property value="pageBean.totalPage" />页</span>
-	
-			<s:if test="pageBean.page != 1">
-			<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
-			<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1" />" class="previousPage">&nbsp;</a>
-			</s:if>
-			
-			<s:iterator var="i" begin="1" end="pageBean.totalPage">	
-				<s:if test="pageBean.page != #i">		
-					<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i" />"><s:property value="#i" /></a>
+		<div id="result" class="result table clearfix">
+				<ul>
+					<s:iterator value="pageBean.list" var="p">						
+						<li>
+							<a href="${pageContext.request.contextPath}/product_findById.action?id=<s:property value="#p.id"/>">
+								<img src="${pageContext.request.contextPath}/<s:property value="#p.image"/>" width="170" height="170"  style="display: inline-block;"/>
+								<span style='color:green'><s:property value="#p.name" /></span>
+								<span class="price">商城价:¥<s:property value="#p.shopPrice" /></span>
+							</a>
+						</li>
+					</s:iterator>		
+				</ul>
+		</div>
+		<div class="pagination">
+			<s:if test="cid !=null">
+				<span>第<s:property value="pageBean.page" />/<s:property value="pageBean.totalPage" />页</span>
+				<s:if test="pageBean.page != 1">
+				<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
+				<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1" />" class="previousPage">&nbsp;</a>
 				</s:if>
-				<s:else>
-					<span class="currentPage"><s:property value="#i" /></span>
-				</s:else>
-			</s:iterator>	
 				
-			<s:if test="pageBean.page != pageBean.totalPage">
-			<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1" />">&nbsp;</a>
-			<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage" />">&nbsp;</a>
+				<s:iterator var="i" begin="1" end="pageBean.totalPage">	
+					<s:if test="pageBean.page != #i">		
+						<a href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i" />"><s:property value="#i" /></a>
+					</s:if>
+					<s:else>
+						<span class="currentPage"><s:property value="#i" /></span>
+					</s:else>
+				</s:iterator>	
+					
+				<s:if test="pageBean.page != pageBean.totalPage">
+				<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1" />">&nbsp;</a>
+				<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage" />">&nbsp;</a>
+				</s:if>	
 			</s:if>	
-	</div>
-			</form>
+			<s:if test="csid !=null">
+				<span>第<s:property value="pageBean.page" />/<s:property value="pageBean.totalPage" />页</span>
+				<s:if test="pageBean.page != 1">
+				<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=1" class="firstPage">&nbsp;</a>
+				<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page-1" />" class="previousPage">&nbsp;</a>
+				</s:if>
+				
+				<s:iterator var="i" begin="1" end="pageBean.totalPage">	
+					<s:if test="pageBean.page != #i">		
+						<a href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="#i" />"><s:property value="#i" /></a>
+					</s:if>
+					<s:else>
+						<span class="currentPage"><s:property value="#i" /></span>
+					</s:else>
+				</s:iterator>	
+					
+				<s:if test="pageBean.page != pageBean.totalPage">
+				<a class="nextPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1" />">&nbsp;</a>
+				<a class="lastPage" href="${pageContext.request.contextPath}/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.totalPage" />">&nbsp;</a>
+				</s:if>	
+			</s:if>
+		</div>
 		</div>
 	</div>
 <div class="container footer">
 	<div class="span24">
 		<div class="footerAd">
-					<img src="${pageContext.request.contextPath}/image/footer.jpg" width="950" height="52" alt="我们的优势" title="我们的优势">
+					<img src="${pageContext.request.contextPath}/image/footer.jpg" width="950" height="52" alt="我们的优势" title="我们的优势"/>
 </div>	</div>
 	<div class="span24">
 		<ul class="bottomNav">

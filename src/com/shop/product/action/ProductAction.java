@@ -2,6 +2,7 @@ package com.shop.product.action;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -13,6 +14,7 @@ import com.shop.product.service.ProductService;
 import com.shop.utils.PageBean;
 
 @Component("productAction")
+@Scope("prototype")
 public class ProductAction extends ActionSupport implements ModelDriven<Product> {
 	
 	/**
@@ -31,6 +33,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		
 	private Integer cid;
 	private int page;
+	private Integer csid;
 	
 	
 	//根据商品的ID查询商品
@@ -39,7 +42,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		return "findById";
 	}
 	
-	//根据分类的ID查询商品
+	//根据一级分类的ID查询商品
 	public String findByCid() {
 		/**
 		 *	//查询所有一级分类集合
@@ -53,10 +56,19 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		PageBean<Product> pageBean = productService.findByPageCid(cid,page);
 		//将pageBean存入值栈中
 		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
-		
+
 		return "findByCid";
 	}
 	
+	//根据二级分类的ID查询商品
+	public String findByCsid() {
+		//根据二级分类查询商品(分页查询)
+		PageBean<Product> pageBean = productService.findByCsid(csid,page);
+		//将pageBean存入值栈中
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+
+		return "findByCsid";
+	}
 	
 	
 
@@ -76,5 +88,10 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	public void setPage(int page) {
 		this.page = page;
 	}
-	
+	public Integer getCsid() {
+		return csid;
+	}
+	public void setCsid(Integer csid) {
+		this.csid = csid;
+	}
 }

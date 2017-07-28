@@ -58,5 +58,32 @@ public class ProductServiceImpl implements ProductService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+
+	public PageBean<Product> findByCsid(Integer csid, int page) {
+		PageBean<Product> pageBean = new PageBean<Product>();
+		//设置当前的页数
+		pageBean.setPage(page);
+		//设置每页显示记录数
+		int eachPageCount = 12;
+		pageBean.setEachPageCount(eachPageCount);
+		//设置总记录数
+		int totalCount = 0;
+		totalCount = productDao.findCountByCsid(csid);
+		pageBean.setTotalCount(totalCount);
+		//设置总页数
+		//  (向上取整)	  int totalPage = (int) Math.ceil(totalCount / eachPageCount);
+		int totalPage = 0;
+		if(totalCount % eachPageCount == 0) {
+			totalPage = totalCount / eachPageCount;
+		}else {
+			totalPage = totalCount / eachPageCount + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		//每页显示的数据集合 
+		int begin = (page - 1) * eachPageCount;
+		List<Product> list = productDao.findByPageCsid(csid,begin,eachPageCount);
+		pageBean.setList(list);
+		return pageBean;
+	}
 	
 }

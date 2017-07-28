@@ -72,5 +72,23 @@ public class ProductDaoImpl implements ProductDao{
 		}
 		return null;
 	}
+
+	public int findCountByCsid(Integer csid) {
+		String hql = "select count(*) from Product p where p.categorySecond.cs_id = ?";
+		List<Long> list = (List<Long>) hibernateTemplate.find(hql, csid);
+		if (list != null && list.size() > 0) {
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	public List<Product> findByPageCsid(Integer csid, int begin, int eachPageCount) {
+		String hql = "select p from Product p join p.categorySecond cs where cs.cs_id = ?";
+		List<Product> list = hibernateTemplate.execute(new PageHibernateCallback<Product>(hql, new Object[]{csid}, begin, eachPageCount));
+		if (list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
 	
 }

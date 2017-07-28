@@ -16,4 +16,8 @@ public interface ProductDao {
 
 	public List<Product> findByPageCid(Integer cid, int begin, int eachPageCount);
 
+	public int findCountByCsid(Integer csid);
+
+	public List<Product> findByPageCsid(Integer csid, int begin, int eachPageCount);
+
 }
