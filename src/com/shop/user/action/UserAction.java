@@ -121,17 +121,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		return "quit";
 	}
 	
-	
 	public User getModel() {
 		return user;
 	}
-
 	public String getCheckcode() {
 		return checkcode;
 	}
-
 	public void setCheckcode(String checkcode) {
 		this.checkcode = checkcode;
 	}
-
 }
