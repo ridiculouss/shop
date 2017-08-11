@@ -46,6 +46,6 @@ public class OrderServiceImpl implements OrderService{
 		Integer begin = (page - 1) * eachPageCount;
 		List<Order> list = orderDao.findByPageUid(id,begin,eachPageCount);
 		pageBean.setList(list);
-		return null;
+		return pageBean;
 	}
 }

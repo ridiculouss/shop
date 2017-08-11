@@ -33,7 +33,7 @@ public class OrderDaoImpl implements OrderDao {
 
 	public List<Order> findByPageUid(Integer id, Integer begin, Integer eachPageCount) {
 		String hql = "from Order o where o.user.id = ? order by ordertime desc";
-		List<Order> list = hibernateTemplate.execute(new PageHibernateCallback<>(hql, new Object[] {id}, begin, eachPageCount));
+		List<Order> list = hibernateTemplate.execute(new PageHibernateCallback<Order>(hql, new Object[] {id}, begin, eachPageCount));
 		return list;
 	}
 	

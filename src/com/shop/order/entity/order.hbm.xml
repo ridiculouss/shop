@@ -16,7 +16,7 @@
 		<!-- 与用户的关系 -->
 		<many-to-one name="user" lazy="false" class="com.shop.user.entity.User" column="uid" />
 		<!-- 与订单项的关系 -->
-		<set name="orderItems" cascade="save-update">
+		<set name="orderItems" lazy="false" cascade="save-update">
 			<key column="oid" />
 			<one-to-many class="com.shop.order.entity.OrderItem"/>
 		</set>

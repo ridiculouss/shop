@@ -19,7 +19,7 @@
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql:///shop" />
 		<property name="user" value="root" />
-		<property name="password" value="mysql" />
+		<property name="password" value="123456" />
 		<!-- 数据库连接池配置 -->
 		<property name="maxPoolSize" value="40" />
 		<property name="minPoolSize" value="1" />
