@@ -36,5 +36,14 @@ public class OrderDaoImpl implements OrderDao {
 		List<Order> list = hibernateTemplate.execute(new PageHibernateCallback<Order>(hql, new Object[] {id}, begin, eachPageCount));
 		return list;
 	}
+
+	public Order findByOid(Integer oid) {
+		return hibernateTemplate.get(Order.class, oid);
+	}
+
+	public void update(Order currOrder) {
+		hibernateTemplate.update(currOrder);
+	}
+
 	
 }

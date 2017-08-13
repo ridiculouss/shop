@@ -48,4 +48,12 @@ public class OrderServiceImpl implements OrderService{
 		pageBean.setList(list);
 		return pageBean;
 	}
+
+	public Order findByOid(Integer oid) {
+		return orderDao.findByOid(oid);
+	}
+
+	public void update(Order currOrder) {
+		orderDao.update(currOrder);
+	}
 }
