@@ -1,4 +1,4 @@
-package com.shop.category.service.imp;
+package com.shop.category.service.impl;
 
 import java.util.List;
 
@@ -21,6 +21,10 @@ public class CategoryServiceImpl implements CategoryService{
 
 	public List<Category> findAll() {
 		return categoryDao.findAll();
+	}
+
+	public void save(Category category) {
+		categoryDao.save(category);
 	}
 	
 	

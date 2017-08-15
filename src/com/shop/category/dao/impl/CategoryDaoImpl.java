@@ -23,5 +23,9 @@ public class CategoryDaoImpl implements CategoryDao{
 		List<Category> list = (List<Category>) hibernateTemplate.find(hql);
 		return list;
 	}
+
+	public void save(Category category) {
+		hibernateTemplate.save(category);
+	}
 	
 }

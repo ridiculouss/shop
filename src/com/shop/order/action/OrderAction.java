@@ -21,14 +21,10 @@ import com.shop.user.entity.User;
 import com.shop.utils.PageBean;
 import com.shop.utils.PaymentUtil;
 
+@SuppressWarnings("serial")
 @Component("orderAction")
 @Scope("prototype")
 public class OrderAction extends ActionSupport implements ModelDriven<Order> {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	private Order order = new Order();
 

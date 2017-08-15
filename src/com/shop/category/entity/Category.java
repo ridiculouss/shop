@@ -10,6 +10,7 @@ import com.shop.categorySecond.entity.CategorySecond;
  * 一级分类的实体类
  *
  */
+@SuppressWarnings("serial")
 public class Category implements Serializable{
 	private Integer c_id;
 	private String c_name;
