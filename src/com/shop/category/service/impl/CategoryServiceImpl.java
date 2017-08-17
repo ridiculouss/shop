@@ -26,6 +26,18 @@ public class CategoryServiceImpl implements CategoryService{
 	public void save(Category category) {
 		categoryDao.save(category);
 	}
+
+	public Category findByCid(Integer cid) {
+		return categoryDao.findByCid(cid);
+	}
+
+	public void delete(Category category) {
+		categoryDao.delete(category);
+	}
+
+	public void update(Category category) {
+		categoryDao.update(category);
+	}
 	
 	
 }

@@ -19,7 +19,7 @@
 				<TBODY>
 					<tr>
 						<td class="ta_01" align="center" bgColor="#afd1f3">
-							<strong>一级分类 列 表</strong>
+							<strong>二级分类列表</strong>
 						</TD>
 					</tr>
 					<tr>
@@ -42,7 +42,7 @@
 										序号
 									</td>
 									<td align="center" width="17%">
-										一级分类名称
+										二级分类名称
 									</td>
 									<td width="7%" align="center">
 										编辑
@@ -51,7 +51,7 @@
 										删除
 									</td>
 								</tr>
-								<s:iterator var="c" value="cList" status="status">
+								<s:iterator var="cs" value="pageBean.list" status="status">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
@@ -60,7 +60,7 @@
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-												<s:property value="#c.c_name"/>
+												<s:property value="#cs.cs_name"/>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
 												<a href="${pageContext.request.contextPath}/adminCategory_edit.action?c_id=<s:property value="#c.c_id"/>">
@@ -76,6 +76,19 @@
 										</tr>
 									</s:iterator>	
 							</table>
+						</td>
+					</tr>
+					<tr align="center">
+						<td class="ta_01" align="center" bgColor="#afd1f3">
+							第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页&nbsp;&nbsp;&nbsp;&nbsp;
+							<s:if test="pageBean.page != 1">
+							<a href="${pageContext.request.contextPath }/adminCategorySecond_findAll.action?page=1">首页</a>|
+							<a href="${pageContext.request.contextPath }/adminCategorySecond_findAll.action?page=<s:property value="pageBean.page-1"/>">上一页</a>|
+							</s:if>
+							<s:if test="pageBean.page != pageBean.totalPage">
+							<a href="${pageContext.request.contextPath }/adminCategorySecond_findAll.action?page=<s:property value="pageBean.page+1"/>">下一页</a>|
+							<a href="${pageContext.request.contextPath }/adminCategorySecond_findAll.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
+							</s:if>
 						</td>
 					</tr>
 				</TBODY>

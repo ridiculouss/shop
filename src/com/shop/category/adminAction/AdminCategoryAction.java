@@ -29,12 +29,30 @@ public class AdminCategoryAction extends ActionSupport implements ModelDriven<Ca
 		return "findAll";
 	}
 	
+	//后台保存一级分类的方法
 	public String save() {
 		categoryService.save(category);
 		return "saveSuccess";
 	}
 	
+	//后台删除一级分类的方法
+	public String delete() {
+		category = categoryService.findByCid(category.getC_id());
+		categoryService.delete(category);
+		return "deleteSuccess";
+	}
 	
+	//后台编辑一级分类跳转
+	public String edit() {
+		category = categoryService.findByCid(category.getC_id());
+		return "editSuccess";
+	}
+	
+	//后台修改一级分类的方法
+	public String update() {
+		categoryService.update(category);
+		return "updateSuccess";
+	}
 	
 	public Category getModel() {
 		return category;

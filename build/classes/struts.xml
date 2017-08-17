@@ -54,13 +54,21 @@
 		<!-- 配置后台登录的Action -->
 		<action name="adminUser_*" class="adminUserAction" method="{1}">
 			<result name="loginError">/admin/index.jsp</result>
-			<result name="loginSuccess">/admin/home.jsp</result>
+			<result name="loginSuccess" type="redirect">/admin/home.jsp</result>
 		</action>
 		
 		<!-- 配置后台一级分类管理的Action -->
 		<action name="adminCategory_*" class="adminCategoryAction" method="{1}">
 			<result name="findAll">/admin/category/list.jsp</result>
 			<result name="saveSuccess" type="redirectAction">adminCategory_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">adminCategory_findAll.action</result>
+			<result name="editSuccess">/admin/category/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">adminCategory_findAll.action</result>
+		</action>
+		
+		<!-- 配置后台二级分类管理的Action -->
+		<action name="adminCategorySecond_*" class="adminCategorySecondAction" method="{1}">
+			<result name="findAll">/admin/categorySecond/list.jsp</result>
 		</action>
 	</package>
 	

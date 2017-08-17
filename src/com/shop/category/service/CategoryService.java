@@ -10,4 +10,10 @@ public interface CategoryService {
 
 	public void save(Category category);
 
+	public Category findByCid(Integer cid);
+
+	public void delete(Category category);
+
+	public void update(Category category);
+
 }

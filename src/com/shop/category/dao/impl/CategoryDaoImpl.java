@@ -27,5 +27,17 @@ public class CategoryDaoImpl implements CategoryDao{
 	public void save(Category category) {
 		hibernateTemplate.save(category);
 	}
+
+	public Category findByCid(Integer cid) {
+		return hibernateTemplate.get(Category.class, cid);
+	}
+
+	public void delete(Category category) {
+		hibernateTemplate.delete(category);
+	}
+
+	public void update(Category category) {
+		hibernateTemplate.update(category);
+	}
 	
 }
