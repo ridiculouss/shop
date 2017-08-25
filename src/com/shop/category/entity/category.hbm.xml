@@ -9,7 +9,7 @@
 		</id>
 		<property name="c_name" />
 		<!-- lazy:懒加载设置为false    order-by:按某一顺序排序(set是无序的，若不排序则每次数据显示顺序不一致) -->
-		<set name="categorySeconds" inverse="true" lazy="false" order-by="cs_id">
+		<set name="categorySeconds" cascade="delete" inverse="true" lazy="false" order-by="cs_id">
 			<key column="c_id" />
 			<one-to-many class="com.shop.categorySecond.entity.CategorySecond"/>
 		</set>

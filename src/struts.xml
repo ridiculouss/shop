@@ -69,6 +69,11 @@
 		<!-- 配置后台二级分类管理的Action -->
 		<action name="adminCategorySecond_*" class="adminCategorySecondAction" method="{1}">
 			<result name="findAll">/admin/categorySecond/list.jsp</result>
+			<result name="addPage">/admin/categorySecond/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
+			<result name="deleteSuccess" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
+			<result name="editPage">/admin/categorySecond/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
 		</action>
 	</package>
 	

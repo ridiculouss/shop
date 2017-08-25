@@ -36,4 +36,20 @@ public class CategorySecondDaoImpl implements CategorySecondDao {
 		}
 		return null;
 	}
+
+	public void save(CategorySecond categorySecond) {
+		hibernateTemplate.save(categorySecond);
+	}
+
+	public void delete(CategorySecond categorySecond) {
+		hibernateTemplate.delete(categorySecond);
+	}
+
+	public CategorySecond findByCsid(Integer cs_id) {
+		return hibernateTemplate.get(CategorySecond.class, cs_id);
+	}
+
+	public void update(CategorySecond categorySecond) {
+		hibernateTemplate.update(categorySecond);
+	}
 }

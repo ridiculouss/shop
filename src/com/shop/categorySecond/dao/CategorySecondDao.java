@@ -10,4 +10,12 @@ public interface CategorySecondDao {
 
 	public List<CategorySecond> findByPage(int begin, int limit);
 
+	public void save(CategorySecond categorySecond);
+
+	public void delete(CategorySecond categorySecond);
+
+	public CategorySecond findByCsid(Integer cs_id);
+
+	public void update(CategorySecond categorySecond);
+
 }

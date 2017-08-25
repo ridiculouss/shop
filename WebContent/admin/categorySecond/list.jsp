@@ -7,8 +7,8 @@
 		<link href="${pageContext.request.contextPath}/css/Style1.css" rel="stylesheet" type="text/css" />
 		<script language="javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
 		<script type="text/javascript">
-			function addCategory(){
-				window.location.href = "${pageContext.request.contextPath}/admin/category/add.jsp";
+			function addCategorySecond(){
+				window.location.href = "${pageContext.request.contextPath}/adminCategorySecond_addPage.action";
 			}
 		</script>
 	</HEAD>
@@ -24,7 +24,7 @@
 					</tr>
 					<tr>
 						<td class="ta_01" align="right">
-							<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addCategory()">
+							<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addCategorySecond()">
 &#28155;&#21152;
 </button>
 
@@ -63,13 +63,13 @@
 												<s:property value="#cs.cs_name"/>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/adminCategory_edit.action?c_id=<s:property value="#c.c_id"/>">
+												<a href="${pageContext.request.contextPath}/adminCategorySecond_editPage.action?cs_id=<s:property value="#cs.cs_id"/>">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 									
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${pageContext.request.contextPath}/adminCategory_delete.action?c_id=<s:property value="#c.c_id"/>">
+												<a href="${pageContext.request.contextPath}/adminCategorySecond_delete.action?cs_id=<s:property value="#cs.cs_id"/>">
 													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>

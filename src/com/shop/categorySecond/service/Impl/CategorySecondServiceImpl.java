@@ -43,4 +43,20 @@ public class CategorySecondServiceImpl implements CategorySecondService{
 		pageBean.setList(list);
 		return pageBean;
 	}
+
+	public void save(CategorySecond categorySecond) {
+		categorySecondDao.save(categorySecond);
+	}
+
+	public void delete(CategorySecond categorySecond) {
+		categorySecondDao.delete(categorySecond);
+	}
+
+	public CategorySecond findByCsid(Integer cs_id) {
+		return categorySecondDao.findByCsid(cs_id);
+	}
+
+	public void update(CategorySecond categorySecond) {
+		categorySecondDao.update(categorySecond);
+	}
 }
