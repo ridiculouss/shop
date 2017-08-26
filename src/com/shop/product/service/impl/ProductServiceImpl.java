@@ -85,5 +85,30 @@ public class ProductServiceImpl implements ProductService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+
+	public PageBean<Product> findByPage(Integer page) {
+		PageBean<Product> pageBean = new PageBean<Product>();
+		pageBean.setPage(page);
+		int eachPageCount = 10;
+		pageBean.setEachPageCount(eachPageCount);
+		int totalCount = 0;
+		totalCount = productDao.findCountByProduct();
+		pageBean.setTotalCount(totalCount);
+		int totalPage = 0;
+		if (totalCount % eachPageCount == 0) {
+			totalPage = totalCount / eachPageCount;
+		}else {
+			totalPage = totalCount / eachPageCount + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		int begin = (page - 1) * eachPageCount;
+		List<Product> list = productDao.findByPage(begin, eachPageCount);
+		pageBean.setList(list);
+		return pageBean;
+	}
+
+	public void save(Product product) {
+		productDao.save(product);
+	}
 	
 }

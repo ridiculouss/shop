@@ -20,4 +20,10 @@ public interface ProductDao {
 
 	public List<Product> findByPageCsid(Integer csid, int begin, int eachPageCount);
 
+	public int findCountByProduct();
+
+	public List<Product> findByPage(int begin, int eachPageCount);
+
+	public void save(Product product);
+
 }

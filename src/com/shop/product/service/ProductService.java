@@ -17,4 +17,8 @@ public interface ProductService {
 
 	public PageBean<Product> findByCsid(Integer csid, int page);
 
+	public PageBean<Product> findByPage(Integer page);
+
+	public void save(Product product);
+
 }

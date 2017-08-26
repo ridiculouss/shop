@@ -52,4 +52,13 @@ public class CategorySecondDaoImpl implements CategorySecondDao {
 	public void update(CategorySecond categorySecond) {
 		hibernateTemplate.update(categorySecond);
 	}
+
+	public List<CategorySecond> findAll() {
+		String hql = "from CategorySecond";
+		List<CategorySecond> list = (List<CategorySecond>) hibernateTemplate.find(hql);
+		if (list != null && list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
 }

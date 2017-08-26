@@ -1,5 +1,7 @@
 package com.shop.categorySecond.service;
 
+import java.util.List;
+
 import com.shop.categorySecond.entity.CategorySecond;
 import com.shop.utils.PageBean;
 
@@ -14,5 +16,7 @@ public interface CategorySecondService {
 	public CategorySecond findByCsid(Integer cs_id);
 
 	public void update(CategorySecond categorySecond);
+
+	public List<CategorySecond> findAll();
 
 }

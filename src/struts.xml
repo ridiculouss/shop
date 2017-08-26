@@ -75,6 +75,12 @@
 			<result name="editPage">/admin/categorySecond/edit.jsp</result>
 			<result name="updateSuccess" type="redirectAction">adminCategorySecond_findAll.action?page=1</result>
 		</action>
+		
+		<!-- 配置商品管理的Action -->
+		<action name="adminProduct_*" class="adminProductAction" method="{1}">
+			<result name="findAll">/admin/product/list.jsp</result>
+			<result name="addPageSuccess">/admin/product/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">adminProduct_findAll.action?page=1</result>
+		</action>	
 	</package>
-	
 </struts>
